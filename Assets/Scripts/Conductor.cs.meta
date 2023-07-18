@@ -3,7 +3,11 @@ guid: a268c81db39640341bb31674c9954d94
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - MusicSource: {instanceID: 0}
+  - SfxSource: {instanceID: 0}
+  - Countdown: {fileID: 8300000, guid: 0e8943daae2bdaa488984c9765535dd9, type: 3}
+  - SongMusic: {fileID: 8300000, guid: a0600b402b95f43069994676d236893a, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
