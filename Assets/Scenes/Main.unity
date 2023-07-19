@@ -1801,6 +1801,18 @@ MonoBehaviour:
   SfxSource: {fileID: 420970503}
   Countdown: {fileID: 8300000, guid: 0e8943daae2bdaa488984c9765535dd9, type: 3}
   SongMusic: {fileID: 8300000, guid: a0600b402b95f43069994676d236893a, type: 3}
+  NoteStartY: 0
+  NoteBeatY: 0
+  NoteEndY: 0
+  NoteTapDiffTime: 0
+  PerfectThreshold: 0
+  GoodThreshold: 0
+  SongDelay: 0
+  InputDelay: 0
+  MidiFilePath: test_chart_journey.mid
+  MusicStarted: 0
+  SongTimestamp: 0
+  DspSongPlayLength: 0
 --- !u!4 &1909627549
 Transform:
   m_ObjectHideFlags: 0
