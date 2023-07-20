@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 using Melanchall.DryWetMidi.Core;
 using Melanchall.DryWetMidi.Interaction;
-using System.IO;
-using UnityEngine.Networking;
 
 public class Conductor : MonoBehaviour
 {
@@ -39,12 +40,14 @@ public class Conductor : MonoBehaviour
     public static float PausedSongTimestamp;
     public float SongTimestamp;
     public float DspSongPlayLength;
+    public bool CountDownRunning;
 
     // Start is called before the first frame update
     void Start()
     {
         CondInstance = this;
-        
+
+        CountDownRunning = false;
         MusicStarted = false;
         Paused = false;
         PausedSongTimestamp = 0;
@@ -58,22 +61,36 @@ public class Conductor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("p") && MusicStarted)
+        if (Input.GetKeyDown("p"))
         {
-            if(!Paused){
+            if (!Paused && MusicSource.isPlaying)
+            {
                 PausedSongTimestamp = (float)AudioSettings.dspTime;
                 MusicSource.Pause();
                 Paused = true;
-                Debug.Log("Song Paused");
+                Debug.Log("Song Paused at " + AudioSettings.dspTime);
             }
-            else{
-                StartCoroutine(PlayCountdown());
+            else if (Paused && !MusicSource.isPlaying)
+            {
+                CountDownRunning = true;
                 Paused = false;
+                StartCoroutine(PlayCountdown());
                 PausedSongTimestamp = 0;
             }
         }
 
-        
+        if (Input.GetKeyDown("r"))
+        {
+            Restart();
+        }
+
+        //TODO: need to fix - still triggering when window not in focus
+        if (!MusicSource.isPlaying && !Paused && MusicStarted && !CountDownRunning)
+        {
+            MusicStarted = false;
+            Debug.Log("Song Ended at " + AudioSettings.dspTime);
+        }
+
     }
 
     IEnumerator PlayCountdown(){
@@ -91,6 +108,7 @@ public class Conductor : MonoBehaviour
         Debug.Log("Song played at dspTime " + AudioSettings.dspTime);
 
         MusicStarted = true;
+        CountDownRunning = false;
     }
 
     // Read MidiFile from given filepath
@@ -115,5 +133,12 @@ public class Conductor : MonoBehaviour
     //
     public static double GetMusicSourceTime(){
         return (double)CondInstance.MusicSource.timeSamples / CondInstance.MusicSource.clip.frequency;
+    }
+
+    private void Restart()
+    {
+        //MusicSource.Stop();
+        Debug.Log("Game Restarted at " + AudioSettings.dspTime);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
