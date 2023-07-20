@@ -697,7 +697,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 921445109}
-  - component: {fileID: 921445108}
+  - component: {fileID: 921445110}
   m_Layer: 0
   m_Name: Conductor
   m_TagString: Untagged
@@ -705,34 +705,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &921445108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 921445107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a268c81db39640341bb31674c9954d94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicSource: {fileID: 845717688}
-  sfxSource: {fileID: 0}
-  countdown: {fileID: 0}
-  lanes:
-  - {fileID: 2000874209}
-  - {fileID: 1333119885}
-  - {fileID: 946890192}
-  - {fileID: 1609631504}
-  - {fileID: 1598498121}
-  songDelayInSeconds: 0
-  marginOfError: 0.15
-  inputDelayInMilliseconds: 0
-  fileLocation: test_chart_journey.mid
-  noteTime: 1
-  noteSpawnY: 7
-  noteTapY: -3
 --- !u!4 &921445109
 Transform:
   m_ObjectHideFlags: 0
@@ -748,6 +720,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &921445110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921445107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ab8b9f5028042158e3f12ac94d8b12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicSource: {fileID: 845717688}
+  sfxSource: {fileID: 0}
+  countdown: {fileID: 0}
+  lanes:
+  - {fileID: 2000874211}
+  - {fileID: 1333119887}
+  - {fileID: 946890194}
+  - {fileID: 1609631506}
+  - {fileID: 1598498123}
+  songDelayInSeconds: 0
+  marginOfError: 0.15
+  inputDelayInMilliseconds: 0
+  fileLocation: test_chart_journey.mid
+  noteTime: 1
+  noteSpawnY: 7
+  noteTapY: -3
 --- !u!1 &946890191
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,6 +758,7 @@ GameObject:
   m_Component:
   - component: {fileID: 946890193}
   - component: {fileID: 946890192}
+  - component: {fileID: 946890194}
   m_Layer: 0
   m_Name: Lane3
   m_TagString: Untagged
@@ -772,7 +773,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 946890191}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7410e88ebf1e4f74d9d0faedaad78ac6, type: 3}
   m_Name: 
@@ -796,6 +797,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &946890194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946890191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6928cbb94267c4192ac95f400612a896, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noteRestriction: 7
+  input: 32
+  notePrefab: {fileID: 1511803203061209922, guid: b63772328e7fd3f469f039d1b972fda6, type: 3}
+  timeStamps: []
 --- !u!1 &1117770859
 GameObject:
   m_ObjectHideFlags: 0
@@ -1189,7 +1206,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1333119886}
-  - component: {fileID: 1333119885}
+  - component: {fileID: 1333119887}
   m_Layer: 0
   m_Name: Lane2
   m_TagString: Untagged
@@ -1197,22 +1214,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1333119885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1333119884}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7410e88ebf1e4f74d9d0faedaad78ac6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  noteRestriction: 5
-  input: 273
-  notePrefab: {fileID: 8996453612359660299, guid: bbc6d95fb0b500543ae4e56d7e3243fc, type: 3}
-  timeStamps: []
 --- !u!4 &1333119886
 Transform:
   m_ObjectHideFlags: 0
@@ -1228,6 +1229,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1333119887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333119884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6928cbb94267c4192ac95f400612a896, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noteRestriction: 5
+  input: 273
+  notePrefab: {fileID: 8996453612359660299, guid: bbc6d95fb0b500543ae4e56d7e3243fc, type: 3}
+  timeStamps: []
 --- !u!1 &1598498120
 GameObject:
   m_ObjectHideFlags: 0
@@ -1238,6 +1255,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1598498122}
   - component: {fileID: 1598498121}
+  - component: {fileID: 1598498123}
   m_Layer: 0
   m_Name: Lane5
   m_TagString: Untagged
@@ -1252,7 +1270,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1598498120}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7410e88ebf1e4f74d9d0faedaad78ac6, type: 3}
   m_Name: 
@@ -1276,6 +1294,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1598498123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598498120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6928cbb94267c4192ac95f400612a896, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noteRestriction: 11
+  input: 275
+  notePrefab: {fileID: 669233383949532352, guid: 3704c29a49a96d24f8c5e2a2ece24731, type: 3}
+  timeStamps: []
 --- !u!1 &1609631503
 GameObject:
   m_ObjectHideFlags: 0
@@ -1286,6 +1320,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1609631505}
   - component: {fileID: 1609631504}
+  - component: {fileID: 1609631506}
   m_Layer: 0
   m_Name: Lane4
   m_TagString: Untagged
@@ -1300,7 +1335,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1609631503}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7410e88ebf1e4f74d9d0faedaad78ac6, type: 3}
   m_Name: 
@@ -1324,6 +1359,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1609631506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609631503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6928cbb94267c4192ac95f400612a896, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noteRestriction: 9
+  input: 274
+  notePrefab: {fileID: 6412687391444385127, guid: 0f969e0b1402eba4a9800c58dd9376a1, type: 3}
+  timeStamps: []
 --- !u!1 &1736009890
 GameObject:
   m_ObjectHideFlags: 0
@@ -1501,7 +1552,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2000874210}
-  - component: {fileID: 2000874209}
+  - component: {fileID: 2000874211}
   m_Layer: 0
   m_Name: Lane1
   m_TagString: Untagged
@@ -1509,22 +1560,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2000874209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2000874208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7410e88ebf1e4f74d9d0faedaad78ac6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  noteRestriction: 4
-  input: 276
-  notePrefab: {fileID: 6624255756500508579, guid: fcc478fbbcf993c44961629311811503, type: 3}
-  timeStamps: []
 --- !u!4 &2000874210
 Transform:
   m_ObjectHideFlags: 0
@@ -1540,3 +1575,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2000874211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000874208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6928cbb94267c4192ac95f400612a896, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noteRestriction: 4
+  input: 276
+  notePrefab: {fileID: 6624255756500508579, guid: fcc478fbbcf993c44961629311811503, type: 3}
+  timeStamps: []

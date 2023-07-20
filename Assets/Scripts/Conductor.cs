@@ -176,7 +176,7 @@ public class Conductor : MonoBehaviour
         var NoteArray = new Melanchall.DryWetMidi.Interaction.Note[SongNotes.Count];
         SongNotes.CopyTo(NoteArray, 0);
 
-        foreach (var lane in lanes) lane.SetTimeStamps(array);
+        foreach (var lane in lanes) lane.SetTimeStamps(NoteArray);
       
         //Invoke(nameof(StartSong), songDelayInSeconds);
         StartCoroutine(PlayCountdown());

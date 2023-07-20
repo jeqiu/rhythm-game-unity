@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9150558316693801814}
-  - component: {fileID: 5801430771703006318}
   - component: {fileID: 1869006312493875525}
+  - component: {fileID: -3461621837568718755}
   m_Layer: 0
   m_Name: UpNote
   m_TagString: Untagged
@@ -33,19 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!114 &5801430771703006318
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8996453612359660299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 650457ad84514d94aba41c23faca1a56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  assignedTime: 0
 --- !u!212 &1869006312493875525
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -98,3 +85,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-3461621837568718755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8996453612359660299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d31f6db17f140fdb72cd58d4e1a9c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assignedTime: 0
