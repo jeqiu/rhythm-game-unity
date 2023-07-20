@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -9,8 +10,8 @@ using Melanchall.DryWetMidi.Interaction;
 
 public class Conductor : MonoBehaviour
 {
-    public static Conductor CondInstance;
-    //public Lane[] lanes;
+    public static Conductor Instance;
+    public Lane[] lanes;
 
     [Header("Audio Source")]
     [SerializeField] AudioSource MusicSource;
@@ -41,12 +42,32 @@ public class Conductor : MonoBehaviour
     public float SongTimestamp;
     public float DspSongPlayLength;
     public bool CountDownRunning;
+    
+    //variables to refactor or are redundant
+    public float songDelayInSeconds;
+    public double marginOfError; // in seconds
+
+    public int inputDelayInMilliseconds;
+
+    public string fileLocation;
+    public float noteTime; // time note will be on screen
+    public float noteSpawnY;
+    public float noteTapY;
+    public float noteDespawnY
+    {
+        get
+        {
+            return noteTapY - (noteSpawnY - noteTapY);
+        }
+    }
+
+    public static MidiFile midiFile;
 
     // Start is called before the first frame update
     void Start()
     {
-        CondInstance = this;
-
+        Instance = this;
+        
         CountDownRunning = false;
         MusicStarted = false;
         Paused = false;
@@ -55,7 +76,14 @@ public class Conductor : MonoBehaviour
         SfxSource.clip = Countdown;
         MusicSource.clip = SongMusic;
 
-        ReadMidiFile();
+        if (Application.streamingAssetsPath.StartsWith("http://") || Application.streamingAssetsPath.StartsWith("https://"))
+        {
+            StartCoroutine(ReadFromWebsite());
+        }
+        else
+        {
+            ReadMidiFile();
+        }
     }
 
     // Update is called once per frame
@@ -111,6 +139,28 @@ public class Conductor : MonoBehaviour
         CountDownRunning = false;
     }
 
+    private IEnumerator ReadFromWebsite()
+    {
+        using (UnityWebRequest www = UnityWebRequest.Get(Application.streamingAssetsPath + "/" + fileLocation))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError || www.isHttpError)
+            {
+                Debug.LogError(www.error);
+            }
+            else
+            {
+                byte[] results = www.downloadHandler.data;
+                using (var stream = new MemoryStream(results))
+                {
+                    SongMidi = MidiFile.Read(stream);
+                    GetMidiData();
+                }
+            }
+        }
+    }
+
     // Read MidiFile from given filepath
     private void ReadMidiFile()
     {
@@ -126,13 +176,19 @@ public class Conductor : MonoBehaviour
         var NoteArray = new Melanchall.DryWetMidi.Interaction.Note[SongNotes.Count];
         SongNotes.CopyTo(NoteArray, 0);
 
-        //Invoke(nameof(PlaySong()));
+        foreach (var lane in lanes) lane.SetTimeStamps(NoteArray);
+      
+        //Invoke(nameof(StartSong), songDelayInSeconds);
         StartCoroutine(PlayCountdown());
     }
 
-    //
+    //redundant - choose one
     public static double GetMusicSourceTime(){
-        return (double)CondInstance.MusicSource.timeSamples / CondInstance.MusicSource.clip.frequency;
+        return (double)Instance.MusicSource.timeSamples / Instance.MusicSource.clip.frequency;
+    }
+    public static double GetAudioSourceTime()
+    {
+        return (double)Instance.MusicSource.timeSamples / Instance.MusicSource.clip.frequency;
     }
 
     private void Restart()
