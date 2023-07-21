@@ -8,15 +8,15 @@ public class ScoreManager : MonoBehaviour
     public AudioSource hitSFX;
     public AudioSource missSFX;
     public TMPro.TextMeshPro scoreText;
-    static int comboScore;
+    static int score;
     void Start()
     {
         Instance = this;
-        comboScore = 0;
+        score = 0;
     }
     public static void Hit()
     {
-        comboScore += 1;
+        score += 1;
         Instance.hitSFX.Play();
     }
     public static void Miss()
@@ -25,6 +25,6 @@ public class ScoreManager : MonoBehaviour
     }
     private void Update()
     {
-        scoreText.text = comboScore.ToString();
+        scoreText.text = score.ToString();
     }
 }

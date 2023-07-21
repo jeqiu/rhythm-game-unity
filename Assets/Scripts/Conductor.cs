@@ -50,11 +50,11 @@ public class Conductor : MonoBehaviour
     public float DspSongPlayLength;
     public bool CountDownRunning;
     
-    //variables to refactor or are redundant
     public double marginOfError; // in seconds
-
-    public string fileLocation;
     public float noteTime; // time note will be on screen
+
+    //variables to refactor or are redundant
+    public string fileLocation;
 
     // Start is called before the first frame update
     void Start()
@@ -163,7 +163,7 @@ public class Conductor : MonoBehaviour
     }
 
     // Get Data from Midi file
-    public void GetMidiData()
+    public void GetMidiData() 
     {
         var SongNotes = SongMidi.GetNotes();
         var NoteArray = new Melanchall.DryWetMidi.Interaction.Note[SongNotes.Count];
