@@ -26,7 +26,7 @@ public class Lane : MonoBehaviour
         {
             if (note.NoteName == noteRestriction)
             {
-                var metricTimeSpan = TimeConverter.ConvertTo<MetricTimeSpan>(note.Time, Conductor.midiFile.GetTempoMap());
+                var metricTimeSpan = TimeConverter.ConvertTo<MetricTimeSpan>(note.Time, Conductor.SongMidi.GetTempoMap());
                 timeStamps.Add((double)metricTimeSpan.Minutes * 60f + metricTimeSpan.Seconds + (double)metricTimeSpan.Milliseconds / 1000f);
             }
         }
@@ -37,7 +37,7 @@ public class Lane : MonoBehaviour
     {
         if (spawnIndex < timeStamps.Count)
         {
-            if (Conductor.GetAudioSourceTime() >= timeStamps[spawnIndex] - Conductor.Instance.noteTime)
+            if (Conductor.GetMusicSourceTime() >= timeStamps[spawnIndex] - Conductor.Instance.noteTime)
             {
                 var note = Instantiate(notePrefab, transform);
                 notes.Add(note.GetComponent<Note>());
@@ -50,7 +50,7 @@ public class Lane : MonoBehaviour
         {
             double timeStamp = timeStamps[inputIndex];
             double marginOfError = Conductor.Instance.marginOfError;
-            double audioTime = Conductor.GetAudioSourceTime() - (Conductor.Instance.inputDelayInMilliseconds / 1000.0);
+            double audioTime = Conductor.GetMusicSourceTime() - (Conductor.Instance.InputDelayInMilliseconds / 1000.0);
 
             if (Input.GetKeyDown(input))
             {

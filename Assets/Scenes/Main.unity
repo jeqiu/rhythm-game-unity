@@ -242,7 +242,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 81995982}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.2304332, y: -11.151045, z: -0.5229805}
+  m_LocalPosition: {x: 0, y: -11, z: 0}
   m_LocalScale: {x: 80, y: 0.1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -476,7 +476,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 317768296}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 26.230433, y: -11.091045, z: -0.5229805}
+  m_LocalPosition: {x: 26.230433, y: -11, z: 0}
   m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -803,7 +803,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 453689831}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18.730433, y: -11.091045, z: -0.5229805}
+  m_LocalPosition: {x: 18.730433, y: -11, z: 0}
   m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -924,7 +924,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 568147495}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -27.769567, y: -11.091045, z: -0.5229805}
+  m_LocalPosition: {x: -28, y: -11, z: 0}
   m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1298,7 +1298,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1049137358}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.230433, y: -11.091045, z: -0.5229805}
+  m_LocalPosition: {x: 12, y: -11, z: 0}
   m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1581,7 +1581,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1740050340}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20.269567, y: -11.091045, z: -0.5229805}
+  m_LocalPosition: {x: -20, y: -11, z: 0}
   m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1850,6 +1850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a268c81db39640341bb31674c9954d94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lanes: []
   MusicSource: {fileID: 1909627546}
   SfxSource: {fileID: 420970503}
   Countdown: {fileID: 8300000, guid: 0e8943daae2bdaa488984c9765535dd9, type: 3}
@@ -1866,6 +1867,14 @@ MonoBehaviour:
   MusicStarted: 0
   SongTimestamp: 0
   DspSongPlayLength: 0
+  CountDownRunning: 0
+  songDelayInSeconds: 0
+  marginOfError: 0
+  inputDelayInMilliseconds: 0
+  fileLocation: 
+  noteTime: 0
+  noteSpawnY: 0
+  noteTapY: 0
 --- !u!4 &1909627549
 Transform:
   m_ObjectHideFlags: 0
@@ -1907,7 +1916,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933599416}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.769567, y: -11.091045, z: -0.5229805}
+  m_LocalPosition: {x: -12, y: -11, z: 0}
   m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
   m_ConstrainProportionsScale: 1
   m_Children: []

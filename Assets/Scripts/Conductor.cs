@@ -22,16 +22,23 @@ public class Conductor : MonoBehaviour
     public AudioClip SongMusic;
 
     [Header("Note Settings")]
-    public float NoteStartY;
+    public float NoteSpawnY;
     public float NoteBeatY;
-    public float NoteEndY;
+    public float NoteDespawnY
+    {
+        get
+        {
+            return NoteBeatY - (NoteSpawnY - NoteBeatY);
+        }
+    }
+
     public float NoteTapDiffTime; //time difference of tap from perfect beat
     public float PerfectThreshold;
     public float GoodThreshold;
 
     [Header("Other Settings/Variables")]
-    public float SongDelay; //seconds
-    public int InputDelay;
+    public float SongDelayInSeconds;
+    public int InputDelayInMilliseconds;
     public string MidiFilePath;
 
     //variables
@@ -44,24 +51,10 @@ public class Conductor : MonoBehaviour
     public bool CountDownRunning;
     
     //variables to refactor or are redundant
-    public float songDelayInSeconds;
     public double marginOfError; // in seconds
-
-    public int inputDelayInMilliseconds;
 
     public string fileLocation;
     public float noteTime; // time note will be on screen
-    public float noteSpawnY;
-    public float noteTapY;
-    public float noteDespawnY
-    {
-        get
-        {
-            return noteTapY - (noteSpawnY - noteTapY);
-        }
-    }
-
-    public static MidiFile midiFile;
 
     // Start is called before the first frame update
     void Start()
@@ -72,7 +65,7 @@ public class Conductor : MonoBehaviour
         MusicStarted = false;
         Paused = false;
         PausedSongTimestamp = 0;
-        SongDelay = 3;
+        SongDelayInSeconds = 3;
         SfxSource.clip = Countdown;
         MusicSource.clip = SongMusic;
 
@@ -125,7 +118,7 @@ public class Conductor : MonoBehaviour
         SfxSource.Play();
         //SfxSource.PlayScheduled(AudioSettings.dspTime);
         Debug.Log("Countdown started at dspTime " + AudioSettings.dspTime);
-        yield return new WaitForSeconds(SongDelay);
+        yield return new WaitForSeconds(SongDelayInSeconds);
         PlaySong();
     }
 
@@ -178,15 +171,12 @@ public class Conductor : MonoBehaviour
 
         foreach (var lane in lanes) lane.SetTimeStamps(NoteArray);
       
-        //Invoke(nameof(StartSong), songDelayInSeconds);
+        //Invoke(nameof(StartSong), SongDelayInSeconds);
         StartCoroutine(PlayCountdown());
     }
 
     //redundant - choose one
-    public static double GetMusicSourceTime(){
-        return (double)Instance.MusicSource.timeSamples / Instance.MusicSource.clip.frequency;
-    }
-    public static double GetAudioSourceTime()
+    public static double GetMusicSourceTime()
     {
         return (double)Instance.MusicSource.timeSamples / Instance.MusicSource.clip.frequency;
     }

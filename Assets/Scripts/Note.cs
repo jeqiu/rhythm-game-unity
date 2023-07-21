@@ -9,13 +9,13 @@ public class Note : MonoBehaviour
     void Start()
     {
         timeInstantiated = assignedTime - Conductor.Instance.noteTime;
-        //timeInstantiated = Conductor.GetAudioSourceTime();
+        //timeInstantiated = Conductor.GetMusicSourceTime();
     }
 
     // Update is called once per frame
     void Update()
     {
-        double timeSinceInstantiated = Conductor.GetAudioSourceTime() - timeInstantiated;
+        double timeSinceInstantiated = Conductor.GetMusicSourceTime() - timeInstantiated;
         float t = (float)(timeSinceInstantiated / (Conductor.Instance.noteTime * 2));
 
 
@@ -25,7 +25,7 @@ public class Note : MonoBehaviour
         }
         else
         {
-            transform.localPosition = Vector3.Lerp(Vector3.up * Conductor.Instance.noteSpawnY, Vector3.up * Conductor.Instance.noteDespawnY, t);
+            transform.localPosition = Vector3.Lerp(Vector3.up * Conductor.Instance.NoteSpawnY, Vector3.up * Conductor.Instance.NoteDespawnY, t);
             GetComponent<SpriteRenderer>().enabled = true;
         }
     }
