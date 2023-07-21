@@ -8,8 +8,8 @@ public class Note : MonoBehaviour
     public float assignedTime; // time note should be tapped by player
     void Start()
     {
-        timeInstantiated = assignedTime - Conductor.Instance.noteTime;
-        //timeInstantiated = Conductor.GetMusicSourceTime();
+        //timeInstantiated = assignedTime - Conductor.Instance.noteTime;
+        timeInstantiated = Conductor.GetMusicSourceTime();
     }
 
     // Update is called once per frame

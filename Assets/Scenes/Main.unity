@@ -431,7 +431,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noteRestriction: 7
   input: 107
-  notePrefab: {fileID: 7220365776524965633, guid: e2febb602cfb7334b8b1a615a92363ac, type: 3}
+  notePrefab: {fileID: 5235265597507834766, guid: 27b29fa1edff4df4c8e361aaf0a704f7, type: 3}
   timeStamps: []
 --- !u!1 &296650391
 GameObject:
@@ -1887,7 +1887,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noteRestriction: 6
   input: 108
-  notePrefab: {fileID: 6120467467888879244, guid: 1db461579d403ec4b9b979ebc4d7541f, type: 3}
+  notePrefab: {fileID: 5533859864240135669, guid: 92e787460c394c24ab771b4bc3df0507, type: 3}
   timeStamps: []
 --- !u!1 &1684577687
 GameObject:
@@ -1935,7 +1935,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   noteRestriction: 8
   input: 106
-  notePrefab: {fileID: 4507147046578554036, guid: 753b9b82fd6f35443a8de8212a038c05, type: 3}
+  notePrefab: {fileID: 2514390657426306078, guid: 67fc1863103f4684f969ecb574fd922e, type: 3}
   timeStamps: []
 --- !u!1 &1740050340
 GameObject:
@@ -2135,7 +2135,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2565,7 +2565,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e23872a27456a624abe4998c7d7bbc38, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
