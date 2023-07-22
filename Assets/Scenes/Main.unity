@@ -287,8 +287,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2075384289
-  m_SortingLayer: 1
+  m_SortingLayerID: -1765658377
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -429,7 +429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7410e88ebf1e4f74d9d0faedaad78ac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteRestriction: 7
+  noteRestriction: 11
   input: 107
   notePrefab: {fileID: 5235265597507834766, guid: 27b29fa1edff4df4c8e361aaf0a704f7, type: 3}
   timeStamps: []
@@ -538,8 +538,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2075384289
-  m_SortingLayer: 1
+  m_SortingLayerID: -1765658377
+  m_SortingLayer: -1
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.58932, g: 0.8396226, b: 0.80386513, a: 0.68235296}
@@ -596,8 +596,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7410e88ebf1e4f74d9d0faedaad78ac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteRestriction: 0
-  input: 97
+  noteRestriction: 6
+  input: 115
   notePrefab: {fileID: 5533859864240135669, guid: 92e787460c394c24ab771b4bc3df0507, type: 3}
   timeStamps: []
 --- !u!1 &327865533
@@ -727,7 +727,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ffaf4079610de954cb04e8a79b69d3be, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -971,6 +971,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitSFX: {fileID: 360833644}
   missSFX: {fileID: 2121485426}
+  beatSFX: {fileID: 1023612941}
   scoreText: {fileID: 753393655}
 --- !u!4 &426193839
 Transform:
@@ -986,6 +987,7 @@ Transform:
   m_Children:
   - {fileID: 360833643}
   - {fileID: 2121485425}
+  - {fileID: 1023612940}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1059,8 +1061,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2075384289
-  m_SortingLayer: 1
+  m_SortingLayerID: -1765658377
+  m_SortingLayer: -1
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.58932, g: 0.8396226, b: 0.80386513, a: 0.68235296}
@@ -1180,8 +1182,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2075384289
-  m_SortingLayer: 1
+  m_SortingLayerID: -1765658377
+  m_SortingLayer: -1
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.58932, g: 0.8396226, b: 0.80386513, a: 0.68235296}
@@ -1669,10 +1671,138 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7410e88ebf1e4f74d9d0faedaad78ac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteRestriction: 10
-  input: 100
+  noteRestriction: 8
+  input: 102
   notePrefab: {fileID: 2514390657426306078, guid: 67fc1863103f4684f969ecb574fd922e, type: 3}
   timeStamps: []
+--- !u!1 &1023612939
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1023612940}
+  - component: {fileID: 1023612941}
+  m_Layer: 0
+  m_Name: Beat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1023612940
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023612939}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 426193839}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1023612941
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023612939}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 7f5d034749eb9364bbb0131feab0bcec, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1049137358
 GameObject:
   m_ObjectHideFlags: 0
@@ -1743,8 +1873,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2075384289
-  m_SortingLayer: 1
+  m_SortingLayerID: -1765658377
+  m_SortingLayer: -1
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.58932, g: 0.8396226, b: 0.80386513, a: 0.68235296}
@@ -1827,8 +1957,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2075384289
-  m_SortingLayer: 1
+  m_SortingLayerID: -1765658377
+  m_SortingLayer: -1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: b7ba31389ca8d9843a66edbd56dd441d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1885,7 +2015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7410e88ebf1e4f74d9d0faedaad78ac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteRestriction: 6
+  noteRestriction: 0
   input: 108
   notePrefab: {fileID: 5533859864240135669, guid: 92e787460c394c24ab771b4bc3df0507, type: 3}
   timeStamps: []
@@ -1933,7 +2063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7410e88ebf1e4f74d9d0faedaad78ac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteRestriction: 8
+  noteRestriction: 10
   input: 106
   notePrefab: {fileID: 2514390657426306078, guid: 67fc1863103f4684f969ecb574fd922e, type: 3}
   timeStamps: []
@@ -2007,8 +2137,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2075384289
-  m_SortingLayer: 1
+  m_SortingLayerID: -1765658377
+  m_SortingLayer: -1
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.58932, g: 0.8396226, b: 0.80386513, a: 0.68235296}
@@ -2135,7 +2265,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2249,7 +2379,7 @@ MonoBehaviour:
   GoodThreshold: 0
   SongDelayInSeconds: 0
   InputDelayInMilliseconds: 0
-  MidiFilePath: PokeMapHard.mid
+  MidiFilePath: test
   MusicStarted: 0
   SongTimestamp: 0
   DspSongPlayLength: 0
@@ -2343,8 +2473,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2075384289
-  m_SortingLayer: 1
+  m_SortingLayerID: -1765658377
+  m_SortingLayer: -1
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.58932, g: 0.8396226, b: 0.80386513, a: 0.68235296}
@@ -2401,8 +2531,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7410e88ebf1e4f74d9d0faedaad78ac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  noteRestriction: 11
-  input: 115
+  noteRestriction: 7
+  input: 100
   notePrefab: {fileID: 5235265597507834766, guid: 27b29fa1edff4df4c8e361aaf0a704f7, type: 3}
   timeStamps: []
 --- !u!1 &1986833726
@@ -2560,11 +2690,11 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2121485424}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e23872a27456a624abe4998c7d7bbc38, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.8
   m_Pitch: 1
   Loop: 0

@@ -134,7 +134,7 @@ public class Conductor : MonoBehaviour
 
     private IEnumerator ReadFromWebsite()
     {
-        using (UnityWebRequest www = UnityWebRequest.Get(Application.streamingAssetsPath + "/" + fileLocation))
+        using (UnityWebRequest www = UnityWebRequest.Get(Application.streamingAssetsPath + "/" + MidiFilePath + ".mid"))
         {
             yield return www.SendWebRequest();
 
@@ -157,7 +157,7 @@ public class Conductor : MonoBehaviour
     // Read MidiFile from given filepath
     private void ReadMidiFile()
     {
-        SongMidi = MidiFile.Read(Application.streamingAssetsPath + "/" + MidiFilePath);
+        SongMidi = MidiFile.Read(Application.streamingAssetsPath + "/" + MidiFilePath + ".mid");
         Debug.Log("Finished Reading Midi" + " at dspTime " + AudioSettings.dspTime);
         GetMidiData();
     }

@@ -9,15 +9,18 @@ public class Note : MonoBehaviour
     void Start()
     {
         //timeInstantiated = assignedTime - Conductor.Instance.noteTime;
+
         timeInstantiated = Conductor.GetMusicSourceTime();
+        Debug.Log("Note started at " + Conductor.GetMusicSourceTime());
     }
 
     // Update is called once per frame
     void Update()
     {
-        double timeSinceInstantiated = Conductor.GetMusicSourceTime() - timeInstantiated;
+        // TODO: error with additional note created at instantiation
+        // error removed if you use '- assignedTime + 0.9' instead of timeInstantiated but not optimal
+        double timeSinceInstantiated = Conductor.GetMusicSourceTime() - timeInstantiated; 
         float t = (float)(timeSinceInstantiated / (Conductor.Instance.noteTime * 2));
-
 
         if (t > 1)
         {

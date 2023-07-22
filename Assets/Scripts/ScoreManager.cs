@@ -7,6 +7,7 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager Instance;
     public AudioSource hitSFX;
     public AudioSource missSFX;
+    public AudioSource beatSFX;
     public TMPro.TextMeshPro scoreText;
     static int score;
     void Start()
@@ -22,6 +23,10 @@ public class ScoreManager : MonoBehaviour
     public static void Miss()
     {
         Instance.missSFX.Play();
+    }
+    public static void Beat()
+    {
+        Instance.beatSFX.Play();
     }
     private void Update()
     {

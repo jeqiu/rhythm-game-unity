@@ -27,7 +27,7 @@ public class Lane : MonoBehaviour
             if (note.NoteName == noteRestriction)
             {
                 var metricTimeSpan = TimeConverter.ConvertTo<MetricTimeSpan>(note.Time, Conductor.SongMidi.GetTempoMap());
-                timeStamps.Add((double)metricTimeSpan.Minutes * 60f + metricTimeSpan.Seconds + (double)metricTimeSpan.Milliseconds / 1000f);
+                timeStamps.Add((double)(metricTimeSpan.Minutes * 60f + metricTimeSpan.Seconds + (double)metricTimeSpan.Milliseconds / 1000f));   
             }
         }
     }
@@ -51,6 +51,13 @@ public class Lane : MonoBehaviour
             double timeStamp = timeStamps[inputIndex];
             double marginOfError = Conductor.Instance.marginOfError;
             double audioTime = Conductor.GetMusicSourceTime() - (Conductor.Instance.InputDelayInMilliseconds / 1000.0);
+
+            //for audio sync testing
+            if ((Math.Abs(audioTime - timeStamp) < 0.02) && Conductor.Instance.MusicStarted && !Conductor.Paused)
+            {
+                Beat();
+            }
+            //
 
             if (Input.GetKeyDown(input))
             {
@@ -82,5 +89,9 @@ public class Lane : MonoBehaviour
     private void Miss()
     {
         ScoreManager.Miss();
+    }
+    private void Beat()
+    {
+        ScoreManager.Beat();
     }
 }
