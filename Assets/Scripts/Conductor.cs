@@ -115,10 +115,11 @@ public class Conductor : MonoBehaviour
         {
             MusicStarted = false;
             Debug.Log("Song Ended at " + AudioSettings.dspTime);
-            Invoke("ReturnToMenu", 2.0f);
+            SceneManager.LoadScene("ScoreBoard");
+            //Invoke("ReturnToMenu", 2.0f);
         }
 
-    }
+        }
 
     IEnumerator PlayCountdown(){
         SfxSource.Play();

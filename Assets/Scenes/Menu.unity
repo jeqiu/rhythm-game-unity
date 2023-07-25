@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Truli-Scuffed: \nThe Rythym Game"
+  m_text: "Truli-Scuffed: \nThe Rhythm Game"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a38ee0c5958315e4db5a93d50d1fe234, type: 2}
   m_sharedMaterial: {fileID: -1882373229183575321, guid: a38ee0c5958315e4db5a93d50d1fe234, type: 2}
