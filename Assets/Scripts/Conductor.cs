@@ -105,11 +105,17 @@ public class Conductor : MonoBehaviour
             Restart();
         }
 
+        if (Input.GetKeyDown("q"))
+        {
+            ReturnToMenu();
+        }
+
         //TODO: need to fix - still triggering when window not in focus
         if (!MusicSource.isPlaying && !Paused && MusicStarted && !CountDownRunning)
         {
             MusicStarted = false;
             Debug.Log("Song Ended at " + AudioSettings.dspTime);
+            Invoke("ReturnToMenu", 2.0f);
         }
 
     }
@@ -186,5 +192,10 @@ public class Conductor : MonoBehaviour
         //MusicSource.Stop();
         Debug.Log("Game Restarted at " + AudioSettings.dspTime);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    void ReturnToMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }
