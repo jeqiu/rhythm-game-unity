@@ -18,7 +18,7 @@ public class ScoreBoard : MonoBehaviour
     {
         Instance = this;
         gameScore = (double)SharedData.score / SharedData.maxScore;
-        scoreText.text = string.Format("{0:P}", gameScore);
+        scoreText.text = gameScore.ToString("P0");
         SharedData.score = 0;
         startReturnTextAnimation();
     }
