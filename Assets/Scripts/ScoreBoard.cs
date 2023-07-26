@@ -5,11 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class ScoreBoard : MonoBehaviour
 {
-    [SerializeField] private string MenuName = "Menu";
+    public static ScoreBoard Instance;
+    public TMPro.TextMeshPro scoreText;
+    public int gameScore;
+    private string MenuName = "Menu";
 
-    public void ReturnToMenu()
+    // Start is called before the first frame update
+    void Start()
     {
-        SceneManager.LoadScene(MenuName);
+        Instance = this;
+        gameScore = SharedData.score;
+        scoreText.text = gameScore.ToString();
+        SharedData.score = 0;
     }
 
     // Update is called once per frame
@@ -20,4 +27,10 @@ public class ScoreBoard : MonoBehaviour
             ReturnToMenu();
         }
     }
+
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene(MenuName);
+    }
+
 }

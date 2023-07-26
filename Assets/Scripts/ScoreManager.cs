@@ -9,15 +9,15 @@ public class ScoreManager : MonoBehaviour
     public AudioSource missSFX;
     public AudioSource beatSFX;
     public TMPro.TextMeshPro scoreText;
-    static int score;
+
     void Start()
     {
         Instance = this;
-        score = 0;
+        SharedData.score = 0;
     }
     public static void Hit()
     {
-        score += 1;
+        SharedData.score += 1;
         Instance.hitSFX.Play();
     }
     public static void Miss()
@@ -30,6 +30,6 @@ public class ScoreManager : MonoBehaviour
     }
     private void Update()
     {
-        scoreText.text = score.ToString();
+        scoreText.text = (SharedData.score).ToString();
     }
 }
