@@ -12,6 +12,7 @@ public class Conductor : MonoBehaviour
 {
     public static Conductor Instance;
     public Lane[] lanes;
+    public bool debug;
 
     [Header("Audio Source")]
     [SerializeField] AudioSource MusicSource;
@@ -32,9 +33,10 @@ public class Conductor : MonoBehaviour
         }
     }
 
+    public float noteTime; // time note will be on screen
     public float NoteTapDiffTime; //time difference of tap from perfect beat
-    public float PerfectThreshold;
-    public float GoodThreshold;
+    public double PerfectHitThreshold;// in seconds
+    public double GoodHitThreshold;// in seconds
 
     [Header("Other Settings/Variables")]
     public float SongDelayInSeconds;
@@ -49,18 +51,13 @@ public class Conductor : MonoBehaviour
     public float SongTimestamp;
     public float DspSongPlayLength;
     public bool CountDownRunning;
-    
-    public double marginOfError; // in seconds
-    public float noteTime; // time note will be on screen
-
-    //variables to refactor or are redundant
-    public string fileLocation;
 
     // Start is called before the first frame update
     void Start()
     {
         Instance = this;
-        
+
+        SharedData.debugMode = debug;
         CountDownRunning = false;
         MusicStarted = false;
         Paused = false;
@@ -115,8 +112,8 @@ public class Conductor : MonoBehaviour
         {
             MusicStarted = false;
             Debug.Log("Song Ended at " + AudioSettings.dspTime);
-            SceneManager.LoadScene("ScoreBoard");
-            //Invoke("ReturnToMenu", 2.0f);
+            //SceneManager.LoadScene("ScoreBoard");
+            Invoke("GoToScoreBoard", 2.0f);
         }
 
         }
@@ -176,6 +173,9 @@ public class Conductor : MonoBehaviour
         var NoteArray = new Melanchall.DryWetMidi.Interaction.Note[SongNotes.Count];
         SongNotes.CopyTo(NoteArray, 0);
 
+        Debug.Log("There are total notes: " + SongNotes.Count);
+        Debug.Log("In NoteArray, there are " + NoteArray.Length);
+
         foreach (var lane in lanes) lane.SetTimeStamps(NoteArray);
       
         //Invoke(nameof(StartSong), SongDelayInSeconds);
@@ -198,5 +198,10 @@ public class Conductor : MonoBehaviour
     void ReturnToMenu()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    void GoToScoreBoard()
+    {
+        SceneManager.LoadScene("ScoreBoard");
     }
 }

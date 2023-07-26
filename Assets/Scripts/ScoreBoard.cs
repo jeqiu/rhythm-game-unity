@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class ScoreBoard : MonoBehaviour
 {
     public static ScoreBoard Instance;
-    public int gameScore;
+    private double gameScore;
     public TMPro.TextMeshPro scoreText;
     public TMPro.TextMeshPro returnText;
     public float animSpeedInSec = 1f;
@@ -17,8 +17,8 @@ public class ScoreBoard : MonoBehaviour
     void Start()
     {
         Instance = this;
-        gameScore = SharedData.score;
-        scoreText.text = gameScore.ToString();
+        gameScore = (double)SharedData.score / SharedData.maxScore;
+        scoreText.text = string.Format("{0:P}", gameScore);
         SharedData.score = 0;
         startReturnTextAnimation();
     }

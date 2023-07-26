@@ -14,11 +14,17 @@ public class ScoreManager : MonoBehaviour
     {
         Instance = this;
         SharedData.score = 0;
+        SharedData.maxScore = 0;
     }
     public static void Hit()
     {
         SharedData.score += 1;
         Instance.hitSFX.Play();
+    }
+    public static void PerfectHit()
+    {
+        SharedData.score += 2;
+        Instance.beatSFX.Play();
     }
     public static void Miss()
     {

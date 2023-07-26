@@ -30,6 +30,8 @@ public class Lane : MonoBehaviour
                 timeStamps.Add((double)(metricTimeSpan.Minutes * 60f + metricTimeSpan.Seconds + (double)metricTimeSpan.Milliseconds / 1000f));   
             }
         }
+        Debug.Log("In this lane there are " + timeStamps.Count + " notes");
+        SharedData.maxScore += timeStamps.Count*2;
     }
 
     // Update is called once per frame
@@ -49,19 +51,30 @@ public class Lane : MonoBehaviour
         if (inputIndex < timeStamps.Count)
         {
             double timeStamp = timeStamps[inputIndex];
-            double marginOfError = Conductor.Instance.marginOfError;
+            double GoodHitThreshold = Conductor.Instance.GoodHitThreshold;
+            double PerfectHitThreshold = Conductor.Instance.PerfectHitThreshold;
             double audioTime = Conductor.GetMusicSourceTime() - (Conductor.Instance.InputDelayInMilliseconds / 1000.0);
 
             //for audio sync testing
-            if ((Math.Abs(audioTime - timeStamp) < 0.02) && Conductor.Instance.MusicStarted && !Conductor.Paused)
+            if ((Math.Abs(audioTime - timeStamp) < 0.025) && SharedData.debugMode && Conductor.Instance.MusicStarted && !Conductor.Paused)
             {
-                Beat();
+                //Beat();
+                PerfectHit();
+                Destroy(notes[inputIndex].gameObject);
+                inputIndex++;
             }
             //
 
             if (Input.GetKeyDown(input))
             {
-                if (Math.Abs(audioTime - timeStamp) < marginOfError)
+                if(Math.Abs(audioTime - timeStamp) < PerfectHitThreshold)
+                {
+                    PerfectHit();
+                    print($"Perfect hit on {inputIndex} note");
+                    Destroy(notes[inputIndex].gameObject);
+                    inputIndex++;
+                }
+                else if (Math.Abs(audioTime - timeStamp) < GoodHitThreshold)
                 {
                     Hit();
                     print($"Hit on {inputIndex} note");
@@ -73,7 +86,7 @@ public class Lane : MonoBehaviour
                     print($"Hit inaccurate on {inputIndex} note with {Math.Abs(audioTime - timeStamp)} delay");
                 }
             }
-            if (timeStamp + marginOfError <= audioTime)
+            if (timeStamp + GoodHitThreshold <= audioTime)
             {
                 Miss();
                 print($"Missed {inputIndex} note");
@@ -85,6 +98,10 @@ public class Lane : MonoBehaviour
     private void Hit()
     {
         ScoreManager.Hit(); // sound effects/visual on hit
+    }
+    private void PerfectHit()
+    {
+        ScoreManager.PerfectHit(); // sound effects/visual on hit
     }
     private void Miss()
     {
