@@ -6,6 +6,10 @@ using UnityEngine;
 
 public class Lane : MonoBehaviour
 {
+    public GameObject visualGuide;
+    SpriteRenderer visualSprite;
+    private Color visualColor;
+
     public Melanchall.DryWetMidi.MusicTheory.NoteName noteRestriction;
     public KeyCode input;
     public GameObject notePrefab;
@@ -18,6 +22,8 @@ public class Lane : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        visualSprite = visualGuide.GetComponent<SpriteRenderer>();
+        visualColor = visualSprite.color;
     }
 
     public void SetTimeStamps(Melanchall.DryWetMidi.Interaction.Note[] array)
@@ -67,7 +73,8 @@ public class Lane : MonoBehaviour
 
             if (Input.GetKeyDown(input))
             {
-                if(Math.Abs(audioTime - timeStamp) < PerfectHitThreshold)
+                //StartCoroutine(AnimateKeyPress(new Color(0.4f, 0.7f, 0.9f)));
+                if (Math.Abs(audioTime - timeStamp) < PerfectHitThreshold)
                 {
                     PerfectHit();
                     print($"Perfect hit on {inputIndex} note");
@@ -84,8 +91,10 @@ public class Lane : MonoBehaviour
                 else
                 {
                     print($"Hit inaccurate on {inputIndex} note with {Math.Abs(audioTime - timeStamp)} delay");
+                    StartCoroutine(AnimateKeyPress(new Color(1, 0.2f, 0.2f)));
                 }
             }
+
             if (timeStamp + GoodHitThreshold <= audioTime)
             {
                 Miss();
@@ -97,10 +106,12 @@ public class Lane : MonoBehaviour
     }
     private void Hit()
     {
+        StartCoroutine(AnimateKeyPress(new Color(0.4f, 0.7f, 0.9f))); //nice light blue 0.1f, 0.8f, 1
         ScoreManager.Hit(); // sound effects/visual on hit
     }
     private void PerfectHit()
     {
+        StartCoroutine(AnimateKeyPress(new Color(0, 1, 0))); //darker green 0.1f, 0.7f, 0.3f
         ScoreManager.PerfectHit(); // sound effects/visual on hit
     }
     private void Miss()
@@ -110,5 +121,23 @@ public class Lane : MonoBehaviour
     private void Beat()
     {
         ScoreManager.Beat();
+    }
+    private IEnumerator AnimateKeyPress(Color cr)
+    {
+        Color pressedColor = cr; // new Color(1, 0, 0);
+        pressedColor.a = visualColor.a; //Set Alpha to match original colors
+        visualSprite.color = pressedColor; 
+        float animSpeedInSec = 0.2f;
+        float counter = 0;
+
+        //Fade Back
+        while (counter < animSpeedInSec)
+        {
+            counter += Time.deltaTime;
+            visualSprite.color = Color.Lerp(pressedColor, visualColor, counter / animSpeedInSec);
+            yield return null;
+        }
+
+        yield break;
     }
 }
