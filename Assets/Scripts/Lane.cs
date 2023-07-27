@@ -76,7 +76,7 @@ public class Lane : MonoBehaviour
 
             if (Input.GetKeyDown(input))
             {
-                //StartCoroutine(AnimateKeyPress(new Color(0.4f, 0.7f, 0.9f)));
+                //StartCoroutine(AnimateKeyPress(new Color(0.4f, 0.7f, 0.9f))); //for testing
                 if (Math.Abs(audioTime - timeStamp) < PerfectHitThreshold)
                 {
                     PerfectHit();
