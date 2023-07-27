@@ -9,9 +9,9 @@ public class Lane : MonoBehaviour
     public GameObject visualGuide;
     SpriteRenderer visualSprite;
     private Color visualColor;
-    private Color missColor = new Color(1, 0.2f, 0.2f);
-    private Color hitColor = new Color(0.4f, 0.7f, 0.9f);  //nice light blue 0.1f, 0.8f, 1
-    private Color perfectHitColor = new Color(0, 1, 0); //darker green 0.1f, 0.7f, 0.3f
+    public Color missColor = new Color(1, 0.2f, 0.2f);
+    public Color hitColor = new Color(0.4f, 0.7f, 0.9f);  //nice light blue 0.1f, 0.8f, 1
+    public Color perfectHitColor = new Color(0, 1, 0); //darker green 0.1f, 0.7f, 0.3f
 
     public Melanchall.DryWetMidi.MusicTheory.NoteName noteRestriction;
     public KeyCode input;
