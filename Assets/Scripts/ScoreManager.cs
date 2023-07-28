@@ -8,6 +8,7 @@ public class ScoreManager : MonoBehaviour
     public AudioSource hitSFX;
     public AudioSource missSFX;
     public AudioSource beatSFX;
+    public AudioSource perfectSFX;
     public TMPro.TextMeshPro scoreText;
 
     void Start()
@@ -24,7 +25,7 @@ public class ScoreManager : MonoBehaviour
     public static void PerfectHit()
     {
         SharedData.score += 2;
-        Instance.beatSFX.Play();
+        Instance.perfectSFX.Play();
     }
     public static void Miss()
     {
