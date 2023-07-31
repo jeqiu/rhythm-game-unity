@@ -83,17 +83,11 @@ public class Conductor : MonoBehaviour
         {
             if (!Paused && MusicSource.isPlaying)
             {
-                PausedSongTimestamp = (float)AudioSettings.dspTime;
-                MusicSource.Pause();
-                Paused = true;
-                Debug.Log("Song Paused at " + AudioSettings.dspTime);
+                PauseGame();
             }
             else if (Paused && !MusicSource.isPlaying)
             {
-                CountDownRunning = true;
-                Paused = false;
-                StartCoroutine(PlayCountdown());
-                PausedSongTimestamp = 0;
+                ResumeGame();
             }
         }
 
@@ -188,14 +182,30 @@ public class Conductor : MonoBehaviour
         return (double)Instance.MusicSource.timeSamples / Instance.MusicSource.clip.frequency;
     }
 
-    private void Restart()
+    public void PauseGame()
+    {
+        PausedSongTimestamp = (float)AudioSettings.dspTime;
+        MusicSource.Pause();
+        Paused = true;
+        Debug.Log("Song Paused at " + AudioSettings.dspTime);
+    }
+
+    public void ResumeGame()
+    {
+        CountDownRunning = true;
+        Paused = false;
+        StartCoroutine(PlayCountdown());
+        PausedSongTimestamp = 0;
+    }
+
+    public void Restart()
     {
         //MusicSource.Stop();
         Debug.Log("Game Restarted at " + AudioSettings.dspTime);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    void ReturnToMenu()
+    public void ReturnToMenu()
     {
         SceneManager.LoadScene("Menu");
     }
