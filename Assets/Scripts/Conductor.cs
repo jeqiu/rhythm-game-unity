@@ -13,6 +13,8 @@ public class Conductor : MonoBehaviour
     public static Conductor Instance;
     public Lane[] lanes;
     public bool debug;
+    public GameObject PausePanel;
+    public GameObject BackgroundFilter;
 
     [Header("Audio Source")]
     [SerializeField] AudioSource MusicSource;
@@ -188,6 +190,8 @@ public class Conductor : MonoBehaviour
         MusicSource.Pause();
         Paused = true;
         Debug.Log("Song Paused at " + AudioSettings.dspTime);
+        PausePanel.SetActive(true);
+        BackgroundFilter.SetActive(true);
     }
 
     public void ResumeGame()
@@ -196,6 +200,8 @@ public class Conductor : MonoBehaviour
         Paused = false;
         StartCoroutine(PlayCountdown());
         PausedSongTimestamp = 0;
+        PausePanel.SetActive(false);
+        BackgroundFilter.SetActive(false);
     }
 
     public void Restart()
