@@ -26,6 +26,7 @@ public class HitAnimation : MonoBehaviour
 
     public void StartAnim(string hitString)
     {
+        StopAllCoroutines();
         hitText.color = currentColor;
         hitText.text = hitString;
         StartCoroutine(PlayAnim());

@@ -16,6 +16,7 @@ public class ScoreManager : MonoBehaviour
         Instance = this;
         SharedData.score = 0;
         SharedData.maxScore = 0;
+        SetSfxVolume();
     }
     public static void Hit()
     {
@@ -38,5 +39,12 @@ public class ScoreManager : MonoBehaviour
     private void Update()
     {
         scoreText.text = (SharedData.score).ToString();
+    }
+    public void SetSfxVolume()
+    {
+        hitSFX.volume = SharedData.sfxVolume;
+        missSFX.volume = SharedData.sfxVolume;
+        beatSFX.volume = SharedData.sfxVolume;
+        perfectSFX.volume = SharedData.sfxVolume;
     }
 }

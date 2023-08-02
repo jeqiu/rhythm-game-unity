@@ -14,6 +14,7 @@ public class Conductor : MonoBehaviour
     public Lane[] lanes;
     public bool debug;
     public GameObject PausePanel;
+    public GameObject SettingsPanel;
     public GameObject BackgroundFilter;
     public GameObject ReadyAnimation;
 
@@ -24,6 +25,7 @@ public class Conductor : MonoBehaviour
     [Header("Audio Clip")]
     public AudioClip Countdown;
     public AudioClip SongMusic;
+    public ScoreManager sfxVolumeScript;
 
     [Header("Note Settings")]
     public float NoteSpawnY;
@@ -66,8 +68,10 @@ public class Conductor : MonoBehaviour
         Paused = false;
         PausedSongTimestamp = 0;
         SongDelayInSeconds = 3;
+
         SfxSource.clip = Countdown;
         MusicSource.clip = SongMusic;
+        SetVolume();
 
         if (Application.streamingAssetsPath.StartsWith("http://") || Application.streamingAssetsPath.StartsWith("https://"))
         {
@@ -200,9 +204,12 @@ public class Conductor : MonoBehaviour
     {
         CountDownRunning = true;
         Paused = false;
+        SetVolume();
+        sfxVolumeScript.SetSfxVolume();
         StartCoroutine(PlayCountdown());
         PausedSongTimestamp = 0;
         PausePanel.SetActive(false);
+        SettingsPanel.SetActive(false);
         BackgroundFilter.SetActive(false);
     }
 
@@ -213,6 +220,18 @@ public class Conductor : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    public void OpenSettings()
+    {
+        PauseGame();
+        SettingsPanel.SetActive(true);
+        PausePanel.SetActive(false);
+    }
+
+    private void SetVolume()
+    {
+        SfxSource.volume = SharedData.sfxVolume;
+        MusicSource.volume = SharedData.musicVolume;
+    }
     public void ReturnToMenu()
     {
         SceneManager.LoadScene("Menu");
