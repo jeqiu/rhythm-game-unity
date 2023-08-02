@@ -1011,11 +1011,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d683a03a6eb2c4b3bb3255ab302b142d, type: 3}
---- !u!1 &389757670 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7358000210534175868, guid: d683a03a6eb2c4b3bb3255ab302b142d, type: 3}
-  m_PrefabInstance: {fileID: 389757669}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &407044387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4827,7 +4822,7 @@ MonoBehaviour:
   debug: 0
   PausePanel: {fileID: 1249939380}
   BackgroundFilter: {fileID: 714389384}
-  ReadyAnimation: {fileID: 389757670}
+  ReadyAnimation: {fileID: 7358000210534175868, guid: d683a03a6eb2c4b3bb3255ab302b142d, type: 3}
   MusicSource: {fileID: 1909627546}
   SfxSource: {fileID: 420970503}
   Countdown: {fileID: 8300000, guid: 0e8943daae2bdaa488984c9765535dd9, type: 3}
@@ -5226,8 +5221,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 6507806
-  m_fontColor: {r: 0.11859204, g: 0.303114, b: 0.38679248, a: 0}
+    rgba: 16777215
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 0
   m_fontColorGradient:

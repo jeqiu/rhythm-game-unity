@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ScoreBoard.unity
     guid: 32dd9e929aa690c44b6736e55d322a28
+  - enabled: 1
+    path: Assets/Scenes/Parody.unity
+    guid: ae1fa2ef42e0d2a4988142c0c1dc393d
   m_configObjects: {}

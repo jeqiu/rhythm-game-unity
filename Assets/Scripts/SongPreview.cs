@@ -11,40 +11,113 @@ public class SongPreview : MonoBehaviour
     public float PauseLength = 0.2f;
 
     [Header("Audio Source")]
-    [SerializeField] AudioSource PreviewSource;
+    [SerializeField] AudioSource PreviewSource1;
+    [SerializeField] AudioSource PreviewSource2;
+    [SerializeField] AudioSource PreviewSource3;
     public AudioClip Preview;
-    public float StartVolume;
+    public float StartVolume1 = -1;
+    public float StartVolume2 = -1;
+    public float StartVolume3 = -1;
 
-    public void StartPreview()
+    public void StartPreview1()
     {
-        //PreviewSource.clip = Preview;
-        PreviewSource = GetComponent<AudioSource>();
-        StartVolume = PreviewSource.volume;
-        Debug.Log("Starting Volume " + PreviewSource.volume);
-        StartCoroutine(PlaySongPreview());
+        if (StartVolume2 != -1) { EndPreview2(); }
+        if (StartVolume3 != -1) { EndPreview3(); }
+        PreviewSource1 = GetComponents<AudioSource>()[0];
+        StartVolume1 = PreviewSource1.volume;
+        Debug.Log("Starting Volume " + PreviewSource1.volume);
+        StartCoroutine(PlaySongPreview1());
     }
 
-    IEnumerator PlaySongPreview()
+    public void StartPreview2()
+    {
+        if (StartVolume1 != -1) { EndPreview1(); }
+        if (StartVolume3 != -1) { EndPreview3(); }
+        PreviewSource2 = GetComponents<AudioSource>()[1];
+        StartVolume2 = PreviewSource2.volume;
+        Debug.Log("Starting Volume " + PreviewSource2.volume);
+        StartCoroutine(PlaySongPreview2());
+    }
+
+    public void StartPreview3()
+    {
+        if (StartVolume1 != -1) { EndPreview1(); }
+        if (StartVolume2 != -1) { EndPreview2(); }
+        //PreviewSource.clip = Preview;
+        PreviewSource3 = GetComponents<AudioSource>()[2];
+        StartVolume3 = PreviewSource3.volume;
+        Debug.Log("Starting Volume " + PreviewSource3.volume);
+        StartCoroutine(PlaySongPreview3());
+    }
+
+    IEnumerator PlaySongPreview1()
     {
         float CurrentTime = 0;
-        PreviewSource.Play();
+        PreviewSource1.Play();
         yield return new WaitForSeconds(15);
         while (CurrentTime < PreviewLength)
         {
             CurrentTime += Time.deltaTime;
-            PreviewSource.volume = Mathf.Lerp(StartVolume, 0, CurrentTime / PreviewLength);
-            Debug.Log("Volume " + PreviewSource.volume);
+            PreviewSource1.volume = Mathf.Lerp(StartVolume1, 0, CurrentTime / PreviewLength);
+            Debug.Log("Volume " + PreviewSource1.volume);
             yield return null;
         }
         Debug.Log("end preview at " + AudioSettings.dspTime);
-        EndPreview();
+        EndPreview1();
         yield break;
     }
 
-    public void EndPreview()
+    IEnumerator PlaySongPreview2()
     {
-        PreviewSource.volume = StartVolume;
-        PreviewSource.Stop();
+        float CurrentTime = 0;
+        PreviewSource2.time = 5;
+        PreviewSource2.Play();
+        yield return new WaitForSeconds(15);
+        while (CurrentTime < PreviewLength)
+        {
+            CurrentTime += Time.deltaTime;
+            PreviewSource2.volume = Mathf.Lerp(StartVolume2, 0, CurrentTime / PreviewLength);
+            Debug.Log("Volume " + PreviewSource2.volume);
+            yield return null;
+        }
+        Debug.Log("end preview at " + AudioSettings.dspTime);
+        EndPreview2();
+        yield break;
+    }
+
+    IEnumerator PlaySongPreview3()
+    {
+        float CurrentTime = 0;
+        PreviewSource3.Play();
+        yield return new WaitForSeconds(15);
+        while (CurrentTime < PreviewLength)
+        {
+            CurrentTime += Time.deltaTime;
+            PreviewSource3.volume = Mathf.Lerp(StartVolume3, 0, CurrentTime / PreviewLength);
+            Debug.Log("Volume " + PreviewSource3.volume);
+            yield return null;
+        }
+        Debug.Log("end preview at " + AudioSettings.dspTime);
+        EndPreview3();
+        yield break;
+    }
+
+    public void EndPreview1()
+    {
+        PreviewSource1.volume = StartVolume1;
+        PreviewSource1.Stop();
+    }
+
+    public void EndPreview2()
+    {
+        PreviewSource2.volume = StartVolume2;
+        PreviewSource2.Stop();
+    }
+
+    public void EndPreview3()
+    {
+        PreviewSource3.volume = StartVolume3;
+        PreviewSource3.Stop();
     }
 
 }
