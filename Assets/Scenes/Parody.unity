@@ -4714,7 +4714,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: bf627bc5bdff1dd4da2f7955a0e06e21, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.7
   m_Pitch: 1
@@ -4821,12 +4821,14 @@ MonoBehaviour:
   - {fileID: 1609723029}
   debug: 0
   PausePanel: {fileID: 1249939380}
+  SettingsPanel: {fileID: 0}
   BackgroundFilter: {fileID: 714389384}
   ReadyAnimation: {fileID: 7358000210534175868, guid: d683a03a6eb2c4b3bb3255ab302b142d, type: 3}
   MusicSource: {fileID: 1909627546}
   SfxSource: {fileID: 420970503}
   Countdown: {fileID: 8300000, guid: 0e8943daae2bdaa488984c9765535dd9, type: 3}
-  SongMusic: {fileID: 8300000, guid: ac9bc0d5a4f90da4c8131c7385a8009f, type: 3}
+  SongMusic: {fileID: 8300000, guid: 2dd229bd99e227d42b4a4330a8981382, type: 3}
+  sfxVolumeScript: {fileID: 0}
   NoteSpawnY: 22.5
   NoteBeatY: -17.5
   noteTime: 1
