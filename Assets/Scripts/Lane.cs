@@ -6,8 +6,14 @@ using UnityEngine;
 
 public class Lane : MonoBehaviour
 {
+    public GameObject hitAnimation;
+    private HitAnimation hitScript;
     public GameObject visualGuide;
     SpriteRenderer visualSprite;
+
+    private Vector3 visualScale;
+    public Vector3 changeScale = new Vector3(0.15f,0.15f,0.15f);
+
     private Color visualColor;
     public Color missColor = new Color(1, 0.2f, 0.2f);
     public Color hitColor = new Color(0.4f, 0.7f, 0.9f);  //nice light blue 0.1f, 0.8f, 1
@@ -25,8 +31,10 @@ public class Lane : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        hitScript = hitAnimation.GetComponent<HitAnimation>();
         visualSprite = visualGuide.GetComponent<SpriteRenderer>();
         visualColor = visualSprite.color;
+        visualScale = visualSprite.transform.localScale;
     }
 
     public void SetTimeStamps(Melanchall.DryWetMidi.Interaction.Note[] array)
@@ -95,6 +103,7 @@ public class Lane : MonoBehaviour
                 {
                     print($"Hit inaccurate on {inputIndex} note with {Math.Abs(audioTime - timeStamp)} delay");
                     StartCoroutine(AnimateKeyPress(missColor));
+                    hitScript.StartAnim("Skill Issue");
                 }
             }
 
@@ -110,11 +119,13 @@ public class Lane : MonoBehaviour
     private void Hit()
     {
         StartCoroutine(AnimateKeyPress(hitColor));
+        hitScript.StartAnim("Nice");
         ScoreManager.Hit(); // sound effects/visual on hit
     }
     private void PerfectHit()
     {
         StartCoroutine(AnimateKeyPress(perfectHitColor));
+        hitScript.StartAnim("Perfect");
         ScoreManager.PerfectHit(); // sound effects/visual on hit
     }
     private void Miss()
@@ -130,6 +141,10 @@ public class Lane : MonoBehaviour
         Color pressedColor = cr; // new Color(1, 0, 0);
         pressedColor.a = visualColor.a; //Set Alpha to match original colors
         visualSprite.color = pressedColor; 
+
+        visualSprite.transform.localScale += changeScale;
+        Vector3 pressedScale = visualSprite.transform.localScale;
+        //Vector2 pressedSize = visualSprite.size;
         float animSpeedInSec = 0.2f;
         float counter = 0;
 
@@ -138,6 +153,7 @@ public class Lane : MonoBehaviour
         {
             counter += Time.deltaTime;
             visualSprite.color = Color.Lerp(pressedColor, visualColor, counter / animSpeedInSec);
+            visualSprite.transform.localScale = Vector3.Lerp(pressedScale, visualScale, counter / animSpeedInSec);
             yield return null;
         }
 

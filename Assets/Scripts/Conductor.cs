@@ -15,6 +15,7 @@ public class Conductor : MonoBehaviour
     public bool debug;
     public GameObject PausePanel;
     public GameObject BackgroundFilter;
+    public GameObject ReadyAnimation;
 
     [Header("Audio Source")]
     [SerializeField] AudioSource MusicSource;
@@ -115,6 +116,7 @@ public class Conductor : MonoBehaviour
         }
 
     IEnumerator PlayCountdown(){
+        Instantiate(ReadyAnimation);
         SfxSource.Play();
         //SfxSource.PlayScheduled(AudioSettings.dspTime);
         Debug.Log("Countdown started at dspTime " + AudioSettings.dspTime);
