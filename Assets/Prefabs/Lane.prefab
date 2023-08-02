@@ -45,7 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualGuide: {fileID: 0}
+  missColor: {r: 1, g: 0.2, b: 0.2, a: 1}
+  hitColor: {r: 0.4, g: 0.7, b: 0.9, a: 1}
+  perfectHitColor: {r: 0, g: 1, b: 0, a: 1}
   noteRestriction: 9
   input: 0
-  notePrefab: {fileID: 0}
+  notePrefab: {fileID: 2225740887222643903, guid: 28452b886d8f20c42b2d33c837b7ad59, type: 3}
   timeStamps: []
