@@ -192,6 +192,7 @@ public class Conductor : MonoBehaviour
 
     public void PauseGame()
     {
+        StopAllCoroutines();
         PausedSongTimestamp = (float)AudioSettings.dspTime;
         MusicSource.Pause();
         Paused = true;
