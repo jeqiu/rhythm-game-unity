@@ -12,7 +12,7 @@ public class Tips : MonoBehaviour
 
     IEnumerator LoadGameAfterDelay()
     {
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(4.5f);
         SceneManager.LoadScene("Parody");
     }
 }

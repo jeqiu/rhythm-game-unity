@@ -464,7 +464,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameInfo: GameInfo
   TrackName1: Main
-  TrackName2: Parody
+  TrackName2: Tips
   TrackName3: MainHSR
 --- !u!4 &530536718
 Transform:
