@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Parody.unity
     guid: ae1fa2ef42e0d2a4988142c0c1dc393d
+  - enabled: 1
+    path: Assets/Scenes/GameInfo.unity
+    guid: 39233412217a6e54cafeb9c7f5cc81ee
+  - enabled: 1
+    path: Assets/Scenes/Tips.unity
+    guid: 614e26c49fe2fb14e8e70244c51df7d1
   m_configObjects: {}
