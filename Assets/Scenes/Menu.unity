@@ -305,7 +305,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2430512977403375692, guid: 19f18f839f0dcb847a78a4623b4ffeb2, type: 3}
       propertyPath: m_Name
-      value: HonkaiTrackButton
+      value: HSRTrackButton
       objectReference: {fileID: 0}
     - target: {fileID: 3460086767966849337, guid: 19f18f839f0dcb847a78a4623b4ffeb2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -317,7 +317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4137176362181704623, guid: 19f18f839f0dcb847a78a4623b4ffeb2, type: 3}
       propertyPath: m_text
-      value: Song Title 3
+      value: Interstellar Journey
       objectReference: {fileID: 0}
     - target: {fileID: 4397275735292865632, guid: 19f18f839f0dcb847a78a4623b4ffeb2, type: 3}
       propertyPath: m_Pivot.x
@@ -464,7 +464,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrackName1: Main
   TrackName2: Parody
-  TrackName3: Honkai
+  TrackName3: MainHSR
 --- !u!4 &530536718
 Transform:
   m_ObjectHideFlags: 0
@@ -494,7 +494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewLength: 0.5
   PauseLength: 0.2
-  PreviewSource1: {fileID: 0}
+  PreviewSource1: {fileID: 530536723}
   PreviewSource2: {fileID: 0}
   PreviewSource3: {fileID: 0}
   Preview: {fileID: 0}

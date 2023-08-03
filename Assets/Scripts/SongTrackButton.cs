@@ -7,7 +7,7 @@ public class TrackButtonUI : MonoBehaviour
 {
     [SerializeField] private string TrackName1 = "Main";
     [SerializeField] private string TrackName2 = "Parody";
-    [SerializeField] private string TrackName3 = "Honkai";
+    [SerializeField] private string TrackName3 = "MainHSR";
 
     public void NewGame1()
     {

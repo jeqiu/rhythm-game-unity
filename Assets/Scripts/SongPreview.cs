@@ -24,6 +24,7 @@ public class SongPreview : MonoBehaviour
         if (StartVolume2 != -1) { EndPreview2(); }
         if (StartVolume3 != -1) { EndPreview3(); }
         PreviewSource1 = GetComponents<AudioSource>()[0];
+        PreviewSource1.volume = SharedData.musicVolume;
         StartVolume1 = PreviewSource1.volume;
         Debug.Log("Starting Volume " + PreviewSource1.volume);
         StartCoroutine(PlaySongPreview1());
@@ -34,6 +35,7 @@ public class SongPreview : MonoBehaviour
         if (StartVolume1 != -1) { EndPreview1(); }
         if (StartVolume3 != -1) { EndPreview3(); }
         PreviewSource2 = GetComponents<AudioSource>()[1];
+        PreviewSource2.volume = SharedData.musicVolume;
         StartVolume2 = PreviewSource2.volume;
         Debug.Log("Starting Volume " + PreviewSource2.volume);
         StartCoroutine(PlaySongPreview2());
@@ -45,6 +47,7 @@ public class SongPreview : MonoBehaviour
         if (StartVolume2 != -1) { EndPreview2(); }
         //PreviewSource.clip = Preview;
         PreviewSource3 = GetComponents<AudioSource>()[2];
+        PreviewSource3.volume = SharedData.musicVolume;
         StartVolume3 = PreviewSource3.volume;
         Debug.Log("Starting Volume " + PreviewSource3.volume);
         StartCoroutine(PlaySongPreview3());
