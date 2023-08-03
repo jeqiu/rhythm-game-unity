@@ -45,6 +45,7 @@ public class DelaySettings : MonoBehaviour
     {
         delaySlider.value = _delayinMilliseconds;
         delayText.text = (SharedData.inputDelay).ToString();
+        InternalGameLog.LogMessage("Delay is now: " + _delayinMilliseconds);
 
     }
 }

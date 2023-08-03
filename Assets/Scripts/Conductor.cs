@@ -72,6 +72,7 @@ public class Conductor : MonoBehaviour
         SfxSource.clip = Countdown;
         MusicSource.clip = SongMusic;
         SetVolume();
+        SetDelay();
 
         if (Application.streamingAssetsPath.StartsWith("http://") || Application.streamingAssetsPath.StartsWith("https://"))
         {
@@ -231,6 +232,11 @@ public class Conductor : MonoBehaviour
     {
         SfxSource.volume = SharedData.sfxVolume;
         MusicSource.volume = SharedData.musicVolume;
+    }
+
+    private void SetDelay()
+    {
+        InputDelayInMilliseconds = SharedData.inputDelay;
     }
     public void ReturnToMenu()
     {

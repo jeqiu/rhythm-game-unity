@@ -26,7 +26,7 @@ public class CalLane : MonoBehaviour
     public Melanchall.DryWetMidi.MusicTheory.NoteName noteRestriction;
     public KeyCode input;
     public GameObject notePrefab;
-    List<Note> notes = new List<Note>();
+    List<CalNote> notes = new List<CalNote>();
     public List<double> timeStamps = new List<double>(); // each tap needs a timestamp
 
     int spawnIndex = 0;
@@ -63,8 +63,8 @@ public class CalLane : MonoBehaviour
             if (CalConductor.GetMusicSourceTime() >= timeStamps[spawnIndex] - CalConductor.Instance.noteTime)
             {
                 var note = Instantiate(notePrefab, transform);
-                notes.Add(note.GetComponent<Note>());
-                note.GetComponent<Note>().assignedTime = (float)timeStamps[spawnIndex];
+                notes.Add(note.GetComponent<CalNote>());
+                note.GetComponent<CalNote>().assignedTime = (float)timeStamps[spawnIndex];
                 spawnIndex++;
             }
         }
@@ -107,7 +107,7 @@ public class CalLane : MonoBehaviour
                 {
                     print($"Hit inaccurate on {inputIndex} note with {Math.Abs(audioTime - timeStamp)} delay");
                     StartCoroutine(AnimateKeyPress(missColor));
-                    hitScript.StartAnim("Skill Issue");
+                    hitScript.StartAnim("Miss");
                 }
             }
 

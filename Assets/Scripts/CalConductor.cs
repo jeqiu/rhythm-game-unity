@@ -77,6 +77,17 @@ public class CalConductor : MonoBehaviour
         {
             ReturnToMenu();
         }
+
+        if(!MusicSource.isPlaying){
+            if (Application.streamingAssetsPath.StartsWith("http://") || Application.streamingAssetsPath.StartsWith("https://"))
+            {
+                StartCoroutine(ReadFromWebsite());
+            }
+            else
+            {
+                ReadMidiFile();
+            }
+        }
     }
 
     //Plays 'Ready' SFX and Song after delay
