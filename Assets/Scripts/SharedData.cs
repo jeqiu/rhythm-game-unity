@@ -10,6 +10,8 @@ public static class SharedData
     public static float sfxVolume { get; set; } = 0.5f;
     public static float musicVolume { get; set; } = 0.5f;
 
+    public static int inputDelay { get; set; } = 0;
+
     public static string trackName { get; set; }
 
     public static bool debugMode { get; set; }
