@@ -11,7 +11,7 @@ public class Note : MonoBehaviour
         //timeInstantiated = assignedTime - Conductor.Instance.noteTime;
 
         timeInstantiated = Conductor.GetMusicSourceTime();
-        Debug.Log("Note started at " + Conductor.GetMusicSourceTime());
+        InternalGameLog.LogMessage("Note started at " + Conductor.GetMusicSourceTime());
     }
 
     // Update is called once per frame

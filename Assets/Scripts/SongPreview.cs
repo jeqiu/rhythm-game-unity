@@ -26,7 +26,7 @@ public class SongPreview : MonoBehaviour
         PreviewSource1 = GetComponents<AudioSource>()[0];
         PreviewSource1.volume = SharedData.musicVolume;
         StartVolume1 = PreviewSource1.volume;
-        Debug.Log("Starting Volume " + PreviewSource1.volume);
+        InternalGameLog.LogMessage("Starting Volume " + PreviewSource1.volume);
         StartCoroutine(PlaySongPreview1());
     }
 
@@ -37,7 +37,7 @@ public class SongPreview : MonoBehaviour
         PreviewSource2 = GetComponents<AudioSource>()[1];
         PreviewSource2.volume = SharedData.musicVolume;
         StartVolume2 = PreviewSource2.volume;
-        Debug.Log("Starting Volume " + PreviewSource2.volume);
+        InternalGameLog.LogMessage("Starting Volume " + PreviewSource2.volume);
         StartCoroutine(PlaySongPreview2());
     }
 
@@ -49,7 +49,7 @@ public class SongPreview : MonoBehaviour
         PreviewSource3 = GetComponents<AudioSource>()[2];
         PreviewSource3.volume = SharedData.musicVolume;
         StartVolume3 = PreviewSource3.volume;
-        Debug.Log("Starting Volume " + PreviewSource3.volume);
+        InternalGameLog.LogMessage("Starting Volume " + PreviewSource3.volume);
         StartCoroutine(PlaySongPreview3());
     }
 
@@ -62,10 +62,10 @@ public class SongPreview : MonoBehaviour
         {
             CurrentTime += Time.deltaTime;
             PreviewSource1.volume = Mathf.Lerp(StartVolume1, 0, CurrentTime / PreviewLength);
-            Debug.Log("Volume " + PreviewSource1.volume);
+            InternalGameLog.LogMessage("Volume " + PreviewSource1.volume);
             yield return null;
         }
-        Debug.Log("end preview at " + AudioSettings.dspTime);
+        InternalGameLog.LogMessage("end preview at " + AudioSettings.dspTime);
         EndPreview1();
         yield break;
     }
@@ -80,10 +80,10 @@ public class SongPreview : MonoBehaviour
         {
             CurrentTime += Time.deltaTime;
             PreviewSource2.volume = Mathf.Lerp(StartVolume2, 0, CurrentTime / PreviewLength);
-            Debug.Log("Volume " + PreviewSource2.volume);
+            InternalGameLog.LogMessage("Volume " + PreviewSource2.volume);
             yield return null;
         }
-        Debug.Log("end preview at " + AudioSettings.dspTime);
+        InternalGameLog.LogMessage("end preview at " + AudioSettings.dspTime);
         EndPreview2();
         yield break;
     }
@@ -97,10 +97,10 @@ public class SongPreview : MonoBehaviour
         {
             CurrentTime += Time.deltaTime;
             PreviewSource3.volume = Mathf.Lerp(StartVolume3, 0, CurrentTime / PreviewLength);
-            Debug.Log("Volume " + PreviewSource3.volume);
+            InternalGameLog.LogMessage("Volume " + PreviewSource3.volume);
             yield return null;
         }
-        Debug.Log("end preview at " + AudioSettings.dspTime);
+        InternalGameLog.LogMessage("end preview at " + AudioSettings.dspTime);
         EndPreview3();
         yield break;
     }

@@ -47,7 +47,7 @@ public class Lane : MonoBehaviour
                 timeStamps.Add((double)(metricTimeSpan.Minutes * 60f + metricTimeSpan.Seconds + (double)metricTimeSpan.Milliseconds / 1000f));   
             }
         }
-        Debug.Log("In this lane there are " + timeStamps.Count + " notes");
+        InternalGameLog.LogMessage("In this lane there are " + timeStamps.Count + " notes");
         SharedData.maxScore += timeStamps.Count*2;
     }
 
@@ -144,7 +144,6 @@ public class Lane : MonoBehaviour
 
         visualSprite.transform.localScale += changeScale;
         Vector3 pressedScale = visualSprite.transform.localScale;
-        //Vector2 pressedSize = visualSprite.size;
         float animSpeedInSec = 0.2f;
         float counter = 0;
 

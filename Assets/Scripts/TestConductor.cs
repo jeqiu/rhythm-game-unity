@@ -61,7 +61,7 @@ public class TestConductor : MonoBehaviour
 
             if (www.isNetworkError || www.isHttpError)
             {
-                Debug.LogError(www.error);
+                InternalGameLog.LogError(www.error);
             }
             else
             {
@@ -96,7 +96,7 @@ public class TestConductor : MonoBehaviour
     {
         // sfxSource.clip = countdown;
         // sfxSource.Play();
-        //Debug.Log("Countdown Started");
+        //InternalGameLog.LogMessage("Countdown Started");
         musicSource.Play();
     }
 

@@ -18,37 +18,6 @@ public class ReadyAnimation : MonoBehaviour
     {
         readyText.SetActive(true);
         textComp = readyText.GetComponent<TMP_Text>();
-
-        /*
-        textComp.ForceMeshUpdate();
-        var textInfo = textComp.textInfo;
-
-        for (int i = 0; i < textInfo.characterCount; i++)
-        {
-            var charInfo = textInfo.characterInfo[i];
-            if (!charInfo.isVisible)
-            {
-                continue;
-            }
-
-            var verts = textInfo.meshInfo[charInfo.materialReferenceIndex].vertices;
-            charWidth = Mathf.Abs(verts[0].x - verts[3].x);
-
-            for (int j = 0; j<4; j++)
-            {
-                var orig = verts[charInfo.vertexIndex + j];
-                verts[charInfo.vertexIndex + j] = verts[j];
-            }
-        }
-
-        for(int i = 0; i < textInfo.meshInfo.Length; i++)
-        {
-            var m = textInfo.meshInfo[i];
-            m.mesh.vertices = m.vertices;
-            textComp.UpdateGeometry(m.mesh, i);
-        }
-        */
-
         StartCoroutine(PlayAnim());
     }
 

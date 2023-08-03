@@ -17,7 +17,7 @@ public class TrackButtonUI : MonoBehaviour
 
     public void NewGame2()
     {
-        SceneManager.LoadScene("Tips");
+        SceneManager.LoadScene(TrackName2);
     }
 
     public void NewGame3()

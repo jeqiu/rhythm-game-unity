@@ -12,7 +12,7 @@ public class GameInfo : MonoBehaviour
 
     IEnumerator LoadGameAfterDelay()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         SceneManager.LoadScene("Menu");
     }
 

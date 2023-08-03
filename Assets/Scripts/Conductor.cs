@@ -112,7 +112,7 @@ public class Conductor : MonoBehaviour
         if (!MusicSource.isPlaying && !Paused && MusicStarted && !CountDownRunning)
         {
             MusicStarted = false;
-            Debug.Log("Song Ended at " + AudioSettings.dspTime);
+            InternalGameLog.LogMessage("Song Ended at " + AudioSettings.dspTime);
             //SceneManager.LoadScene("ScoreBoard");
             Invoke("GoToScoreBoard", 2.0f);
         }
@@ -123,16 +123,15 @@ public class Conductor : MonoBehaviour
         Instantiate(ReadyAnimation);
         SfxSource.Play();
         //SfxSource.PlayScheduled(AudioSettings.dspTime);
-        Debug.Log("Countdown started at dspTime " + AudioSettings.dspTime);
+        InternalGameLog.LogMessage("Countdown started at dspTime " + AudioSettings.dspTime);
         yield return new WaitForSeconds(SongDelayInSeconds);
         PlaySong();
     }
 
     //Plays 'Ready' SFX and Song after delay
-    //TODO: hoping this can also be used for resume
     private void PlaySong(){
         MusicSource.PlayScheduled(AudioSettings.dspTime);
-        Debug.Log("Song played at dspTime " + AudioSettings.dspTime);
+        InternalGameLog.LogMessage("Song played at dspTime " + AudioSettings.dspTime);
 
         MusicStarted = true;
         CountDownRunning = false;
@@ -146,7 +145,7 @@ public class Conductor : MonoBehaviour
 
             if (www.isNetworkError || www.isHttpError)
             {
-                Debug.LogError(www.error);
+                InternalGameLog.LogError(www.error);
             }
             else
             {
@@ -164,7 +163,7 @@ public class Conductor : MonoBehaviour
     private void ReadMidiFile()
     {
         SongMidi = MidiFile.Read(Application.streamingAssetsPath + "/" + MidiFilePath + ".mid");
-        Debug.Log("Finished Reading Midi" + " at dspTime " + AudioSettings.dspTime);
+        InternalGameLog.LogMessage("Finished Reading Midi" + " at dspTime " + AudioSettings.dspTime);
         GetMidiData();
     }
 
@@ -175,8 +174,8 @@ public class Conductor : MonoBehaviour
         var NoteArray = new Melanchall.DryWetMidi.Interaction.Note[SongNotes.Count];
         SongNotes.CopyTo(NoteArray, 0);
 
-        Debug.Log("There are total notes: " + SongNotes.Count);
-        Debug.Log("In NoteArray, there are " + NoteArray.Length);
+        InternalGameLog.LogMessage("There are total notes: " + SongNotes.Count);
+        InternalGameLog.LogMessage("In NoteArray, there are " + NoteArray.Length);
 
         foreach (var lane in lanes) lane.SetTimeStamps(NoteArray);
       
@@ -196,7 +195,7 @@ public class Conductor : MonoBehaviour
         PausedSongTimestamp = (float)AudioSettings.dspTime;
         MusicSource.Pause();
         Paused = true;
-        Debug.Log("Song Paused at " + AudioSettings.dspTime);
+        InternalGameLog.LogMessage("Song Paused at " + AudioSettings.dspTime);
         PausePanel.SetActive(true);
         BackgroundFilter.SetActive(true);
     }
@@ -217,7 +216,7 @@ public class Conductor : MonoBehaviour
     public void Restart()
     {
         //MusicSource.Stop();
-        Debug.Log("Game Restarted at " + AudioSettings.dspTime);
+        InternalGameLog.LogMessage("Game Restarted at " + AudioSettings.dspTime);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
