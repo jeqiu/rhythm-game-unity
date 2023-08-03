@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class TrackButtonUI : MonoBehaviour
 {
     [SerializeField] private string GameInfo = "GameInfo";
+    [SerializeField] private string CalibrationSettings = "Calibration";
     [SerializeField] private string TrackName1 = "Main";
     [SerializeField] private string TrackName2 = "Tips";
     [SerializeField] private string TrackName3 = "MainHSR";
@@ -28,6 +29,11 @@ public class TrackButtonUI : MonoBehaviour
     public void ShowGameInfo()
     {
         SceneManager.LoadScene(GameInfo);
+    }
+
+    public void GoToCalibration()
+    {
+        SceneManager.LoadScene(CalibrationSettings);
     }
 
 }

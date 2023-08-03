@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/ScoreBoard.unity
     guid: 32dd9e929aa690c44b6736e55d322a28
   - enabled: 1
+    path: Assets/Scenes/Calibration.unity
+    guid: 6e2846b5f330a498ea1f2863550d7d8e
+  - enabled: 1
     path: Assets/Scenes/GameInfo.unity
     guid: 39233412217a6e54cafeb9c7f5cc81ee
   - enabled: 1

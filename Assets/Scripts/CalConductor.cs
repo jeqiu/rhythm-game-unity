@@ -58,7 +58,7 @@ public class CalConductor : MonoBehaviour
         PausedSongTimestamp = 0;
 
         MusicSource.clip = SongMusic;
-        //SetVolume();
+        SetVolume();
 
         if (Application.streamingAssetsPath.StartsWith("http://") || Application.streamingAssetsPath.StartsWith("https://"))
         {
@@ -147,7 +147,12 @@ public class CalConductor : MonoBehaviour
         return (double)Instance.MusicSource.timeSamples / Instance.MusicSource.clip.frequency;
     }
 
-    public void SetDelay()
+    private void SetVolume()
+    {
+        MusicSource.volume = SharedData.musicVolume;
+        InternalGameLog.LogMessage("Current Volume: " +  MusicSource.volume);
+    }
+    private void SetDelay()
     {
         InputDelayInMilliseconds = SharedData.inputDelay;
     }

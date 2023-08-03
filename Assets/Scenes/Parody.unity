@@ -4857,7 +4857,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: bf627bc5bdff1dd4da2f7955a0e06e21, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e4d03b8f90b174993b3bf3475398e42d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.7
   m_Pitch: 1
@@ -4970,7 +4970,7 @@ MonoBehaviour:
   MusicSource: {fileID: 1909627546}
   SfxSource: {fileID: 420970503}
   Countdown: {fileID: 8300000, guid: 0e8943daae2bdaa488984c9765535dd9, type: 3}
-  SongMusic: {fileID: 8300000, guid: ac9bc0d5a4f90da4c8131c7385a8009f, type: 3}
+  SongMusic: {fileID: 8300000, guid: e4d03b8f90b174993b3bf3475398e42d, type: 3}
   sfxVolumeScript: {fileID: 426193838}
   NoteSpawnY: 22.5
   NoteBeatY: -17.5
