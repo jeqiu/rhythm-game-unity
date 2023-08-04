@@ -28,7 +28,7 @@ public class ReadyAnimation : MonoBehaviour
 
         float CurrentTime = 0;
         float AnimLength = 1.5f;
-        float LerpDistance = charWidth*0.01f/AnimLength;
+        float LerpDistance = charWidth * 0.01f;///AnimLength;
 
         while (CurrentTime < AnimLength)
         {
